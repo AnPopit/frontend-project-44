@@ -1,6 +1,10 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
+  "bin": {
+    "nodejs-package": "bin/brain-games.js"
+  },
+  "type": "module",
   "description": "[![Actions Status](https://github.com/AnPopit/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AnPopit/frontend-project-44/actions)",
   "main": "index.js",
   "scripts": {
