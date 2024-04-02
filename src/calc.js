@@ -1,39 +1,29 @@
-import readlineSync from 'readline-sync';
+import { startGame } from './index.js';
+
+const getCorrectAnswer = (symbol, randomNumber, randomNumber2) => {
+  let result = 0;
+  if (symbol === '+') {
+    result = randomNumber + randomNumber2;
+  } else if (symbol === '-') {
+    result = randomNumber - randomNumber2;
+  } else if (symbol === '*') {
+    result = randomNumber * randomNumber2;
+  }
+  return result;
+};
+
+const getCondition = () => {
+  const oper = ['+', '-', '*'];
+  const randomNumber = Math.floor(Math.random() * 100);
+  const randomNumber2 = Math.floor(Math.random() * 100);
+  const randomIndex = Math.floor(Math.random() * (oper.length - 1));
+  const result = getCorrectAnswer(oper[randomIndex], randomNumber, randomNumber2);
+  const question = (`${randomNumber} ${oper[randomIndex]} ${randomNumber2}`);
+  return [question, String(result)];
+};
 
 export default () => {
-    console.log('Welcome to the Brain Games!');
-    const userName = readlineSync.question('May I have your name? ');
-    console.log(`Hello, ${userName}!`)
-    console.log('Answer "yes" if thea number is even, otherwise answer "no".');
-    let i = 0; 
-    const oper = ['+', '-', '*'];
-    while (i < 3) {
+  const rule = 'What is the result of the expression?';
 
-    let randomNumber = Math.floor(Math.random() * 100);
-    let randomNumber2 = Math.floor(Math.random() * 100);
-    let randomIndex = Math.floor(Math.random() * (oper.length - 1));
-    let result = 0;
-
-    if (oper[randomIndex] === '+') {
-        result = randomNumber + randomNumber2;
-    } else if (oper[randomIndex] === '-') {
-        result = randomNumber - randomNumber2;
-    } else if (oper[randomIndex] === '*') {
-        result = randomNumber * randomNumber2;
-    } 
-
-    console.log(`Question: ${randomNumber}${oper[randomIndex]}${randomNumber2}`);
-    
-
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (result === Number(userAnswer)) {
-        console.log('Correct!');
-        i += 1;
-    } else {
-        console.log(`Let's try again, ${userName}!`);
-        return;
-    }
-    }
-    console.log(`Congratulations, ${userName}!`);
-    return;
+  startGame(rule, getCondition);
 };
