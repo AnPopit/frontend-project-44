@@ -1,4 +1,4 @@
-import { startGame } from './index.js';
+import { startGame } from '../index.js';
 
 const getCorrectAnswer = (symbol, randomNumber, randomNumber2) => {
   let result = 0;
