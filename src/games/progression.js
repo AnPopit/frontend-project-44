@@ -28,9 +28,13 @@ const getCondition = () => {
     if (i === randomIndex) {
       question = (`${question} ..`);
       nextNumber += delta;
+    } else if (i === 0) {
+      question = (`${question}${nextNumber}`);
+      nextNumber += delta;
+    } else {
+      question = (`${question} ${nextNumber}`);
+      nextNumber += delta;
     }
-    question = (`${question} ${nextNumber}`);
-    nextNumber += delta;
   }
   return [question, String(result)];
 };
