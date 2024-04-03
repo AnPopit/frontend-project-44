@@ -8,7 +8,7 @@ const startGame = (rule, getCondition) => {
 
   for (let i = 0; i < 3; i += 1) {
     const [question, result] = getCondition(); // 1. Вопрос
-    console.log(`Question: ${question}`);
+    console.log(`Question:${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (result === userAnswer) {
       console.log('Correct!');
