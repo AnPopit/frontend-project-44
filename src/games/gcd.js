@@ -1,12 +1,14 @@
-import { startGame } from '../index.js';
+import startGame from '../index.js';
 
 const getCorrectAnswer = (randomNumber, randomNumber2) => {
+  let a = randomNumber;
+  let b = randomNumber2;
   let result = 0;
-  while (randomNumber !== 0 && randomNumber2 !== 0) {
-    if (randomNumber > randomNumber2) {
-      randomNumber %= randomNumber2;
+  while (a !== 0 && b !== 0) {
+    if (a > b) {
+      a %= b;
     } else {
-      randomNumber2 %= randomNumber;
+      b %= a;
     }
   }
   result = randomNumber2 + randomNumber;

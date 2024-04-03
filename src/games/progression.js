@@ -1,4 +1,4 @@
-import { startGame } from '../index.js';
+import startGame from '../index.js';
 
 const getCorrectAnswer = (randomNumber, delta, randomIndex) => {
   let result = 0;
@@ -14,10 +14,13 @@ const getCorrectAnswer = (randomNumber, delta, randomIndex) => {
 };
 
 const getCondition = () => {
-  const randomNumber = Math.floor(Math.random() * 10);
-  const delta = Math.floor(Math.random() * (10 - 0 + 1)) + 0;
-  const randomCount = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
-  const randomIndex = Math.floor(Math.random() * (randomCount - 0 + 1)) + 0;
+  const maxRange = 10;
+  const minRange = 0;
+  const minRangeIndex = 5;
+  const randomNumber = Math.floor(Math.random() * maxRange);
+  const delta = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+  const randomCount = Math.floor(Math.random() * (maxRange - minRangeIndex + 1)) + minRangeIndex;
+  const randomIndex = Math.floor(Math.random() * (randomCount - minRange + 1)) + minRange;
   const result = getCorrectAnswer(randomNumber, delta, randomIndex);
   let question = '';
   let nextNumber = randomNumber;

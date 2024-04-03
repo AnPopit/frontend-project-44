@@ -21,4 +21,4 @@ const startGame = (rule, getCondition) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export { startGame };
+export default startGame;
