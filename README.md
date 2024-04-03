@@ -3,6 +3,8 @@
 <a href="https://codeclimate.com/github/AnPopit/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/ceee9022777f7d300c24/maintainability" /></a>
 
 Текущий проект представляет собой серию игр:
+Минимальные требования: Node.js v20.11.1
+
 1. Проверка на четность
 Суть игры в следующем: пользователю показывается случайное число. И ему нужно ответить yes, если число чётное, или no — если нечётное.
 Исполняемый файл находится в директории bin и называется brain-even.js
