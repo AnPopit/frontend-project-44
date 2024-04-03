@@ -25,8 +25,11 @@ const getCondition = () => {
   let question = '';
   let nextNumber = randomNumber;
   for (let i = 0; i <= randomCount; i += 1) {
-    if (i === randomIndex) {
+    if ((i === randomIndex) && (i > 0)) {
       question = (`${question} ..`);
+      nextNumber += delta;
+    } else if ((i === randomIndex) && (randomIndex === 0)) {
+      question = (`${question}..`);
       nextNumber += delta;
     } else if (i === 0) {
       question = (`${question}${nextNumber}`);
