@@ -11,7 +11,7 @@ const getCorrectAnswer = (randomNumber, randomNumber2) => {
       b %= a;
     }
   }
-  result = randomNumber2 + randomNumber;
+  result = a + b;
   return result;
 };
 
