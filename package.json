@@ -7,7 +7,7 @@
     "brain-calc": "bin/brain-calc.js",
     "brain-gcd": "bin/brain-gcd.js",
     "brain-progression": "bin/brain-progression.js",
-    "brain-prime.js": "bin/brain-prime.js"
+    "brain-prime": "bin/brain-prime.js"
   },
   "type": "module",
   "description": "[![Actions Status](https://github.com/AnPopit/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AnPopit/frontend-project-44/actions)",
