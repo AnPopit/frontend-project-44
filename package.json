@@ -10,12 +10,12 @@
     "brain-prime": "bin/brain-prime.js"
   },
   "type": "module",
-  "description": "[![Actions Status](https://github.com/AnPopit/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AnPopit/frontend-project-44/actions)",
+  "description": "The project consists of several mathematical games",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Anna Politova",
   "license": "ISC",
   "dependencies": {
     "readline-sync": "^1.4.10"

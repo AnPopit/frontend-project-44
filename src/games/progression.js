@@ -1,49 +1,26 @@
 import startGame from '../index.js';
+import getRandomNumber from '../randomNumber.js';
 
-const getCorrectAnswer = (randomNumber, delta, randomIndex) => {
-  let result = 0;
+const getProression = () => {
+  const maxRange = 10;
+  const minRangeIndex = 5;
+  const randomNumber = getRandomNumber(maxRange);
+  const delta = getRandomNumber(maxRange);
+  const randomCount = getRandomNumber(maxRange, minRangeIndex);
   let nextNumber = randomNumber;
-  for (let i = 0; i <= 10; i += 1) {
-    if (i === randomIndex) {
-      result = nextNumber;
-      nextNumber += delta;
-    }
+  const progression = [];
+  const randomIndex = getRandomNumber(randomCount);
+  for (let i = 0; i <= randomCount; i += 1) {
+    progression.push(nextNumber);
     nextNumber += delta;
   }
-  return result;
-};
-
-const getCondition = () => {
-  const maxRange = 10;
-  const minRange = 0;
-  const minRangeIndex = 5;
-  const randomNumber = Math.floor(Math.random() * maxRange);
-  const delta = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
-  const randomCount = Math.floor(Math.random() * (maxRange - minRangeIndex + 1)) + minRangeIndex;
-  const randomIndex = Math.floor(Math.random() * (randomCount - minRange + 1)) + minRange;
-  const result = getCorrectAnswer(randomNumber, delta, randomIndex);
-  let question = '';
-  let nextNumber = randomNumber;
-  for (let i = 0; i <= randomCount; i += 1) {
-    if ((i === randomIndex) && (i > 0)) {
-      question = (`${question} ..`);
-      nextNumber += delta;
-    } else if ((i === randomIndex) && (randomIndex === 0)) {
-      question = (`${question}..`);
-      nextNumber += delta;
-    } else if (i === 0) {
-      question = (`${question}${nextNumber}`);
-      nextNumber += delta;
-    } else {
-      question = (`${question} ${nextNumber}`);
-      nextNumber += delta;
-    }
-  }
-  return [question, String(result)];
+  const result = progression[randomIndex];
+  progression[randomIndex] = '..';
+  return [progression.join(' '), String(result)];
 };
 
 export default () => {
   const rule = 'What number is missing in the progression?';
 
-  startGame(rule, getCondition);
+  startGame(rule, getProression);
 };

@@ -1,9 +1,9 @@
 import startGame from '../index.js';
+import getRandomNumber from '../randomNumber.js';
 
 const getCorrectAnswer = (randomNumber, randomNumber2) => {
   let a = randomNumber;
   let b = randomNumber2;
-  let result = 0;
   while (a !== 0 && b !== 0) {
     if (a > b) {
       a %= b;
@@ -11,13 +11,13 @@ const getCorrectAnswer = (randomNumber, randomNumber2) => {
       b %= a;
     }
   }
-  result = a + b;
-  return result;
+  return a + b;
 };
 
 const getCondition = () => {
-  const randomNumber = Math.floor(Math.random() * 100);
-  const randomNumber2 = Math.floor(Math.random() * 100);
+  const maxRange = 100;
+  const randomNumber = getRandomNumber(maxRange);
+  const randomNumber2 = getRandomNumber(maxRange);
   const result = getCorrectAnswer(randomNumber, randomNumber2);
   const question = (`${randomNumber} ${randomNumber2}`);
   return [question, String(result)];

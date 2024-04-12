@@ -1,21 +1,24 @@
 import startGame from '../index.js';
+import getRandomNumber from '../randomNumber.js';
 
-const getCorrectAnswer = (randomNumber) => {
-  let result = 'yes';
-  if (randomNumber > 1) {
-    for (let i = 2; i < randomNumber; i += 1) {
-      if (randomNumber % i === 0) {
-        result = 'no';
-      }
+const isPrimeNumber = (randomNumber) => {
+  let result = true;
+  for (let i = 2; i < randomNumber; i += 1) {
+    if (randomNumber % i === 0) {
+      result = false;
     }
-  } else {
-    result = 'no';
+  }
+  if (randomNumber <= 1) {
+    result = false;
   }
   return result;
 };
 
+const getCorrectAnswer = (randomNumber) => (isPrimeNumber(randomNumber) ? 'yes' : 'no');
+
 const getCondition = () => {
-  const randomNumber = Math.floor(Math.random() * 100);
+  const maxRange = 100;
+  const randomNumber = getRandomNumber(maxRange);
   const result = getCorrectAnswer(randomNumber);
   const question = randomNumber;
   return [question, String(result)];

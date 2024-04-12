@@ -1,18 +1,15 @@
 import startGame from '../index.js';
+import getRandomNumber from '../randomNumber.js';
+// отдельная функуция
 
-const getCorrectAnswer = (randomNumber) => {
-  let result = '';
-  if ((randomNumber % 2) === 0) {
-    result = 'yes';
-  } else if ((randomNumber % 2) !== 0) {
-    result = 'no';
-  }
-  return result;
-};
+const isEvenNumber = (randomNumber) => (((randomNumber % 2) === 0));
+
+const getCorrectAnswer = (randomNumber) => (isEvenNumber(randomNumber) ? 'yes' : 'no');
 
 const getCondition = () => {
-  const randomNumber = Math.floor(Math.random() * 100);
-  const question = randomNumber;
+  const maxRange = 100;
+  const randomNumber = getRandomNumber(maxRange);
+  const question = String(randomNumber);
   const result = getCorrectAnswer(randomNumber);
   return [question, result];
 };
