@@ -1,6 +1,5 @@
 import startGame from '../index.js';
 import getRandomNumber from '../randomNumber.js';
-// отдельная функуция
 
 const isEvenNumber = (randomNumber) => (((randomNumber % 2) === 0));
 

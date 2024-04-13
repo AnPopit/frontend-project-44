@@ -25,6 +25,5 @@ const getCondition = () => {
 
 export default () => {
   const rule = 'Find the greatest common divisor of given numbers.';
-
   startGame(rule, getCondition);
 };
