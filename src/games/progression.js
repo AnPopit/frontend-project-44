@@ -16,7 +16,7 @@ const getProgression = () => {
 
   const result = progression[hiddenIndex];
   progression[hiddenIndex] = '..';
-  
+
   return [progression.join(' '), String(result)];
 };
 
